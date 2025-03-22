@@ -1,36 +1,109 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Web-приложение для планирования посещения достопримечательностей
 
-## Getting Started
+## Описание
 
-First, run the development server:
+Это web-приложение для планирования посещения достопримечательностей, с возможностью добавления, редактирования, удаления и отслеживания статуса достопримечательностей.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Установка
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. Клонировать репозиторий:
+   ```bash
+   git clone https://github.com/your-repository-url
+Перейти в директорию проекта:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+bash
+Копировать
+Редактировать
+cd your-project-directory
+Установить зависимости:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+bash
+Копировать
+Редактировать
+npm install
+Запустить проект:
 
-## Learn More
+bash
+Копировать
+Редактировать
+npm start
+Структура проекта
+/src — Исходный код приложения
 
-To learn more about Next.js, take a look at the following resources:
+/public — Статические файлы
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+/styles — Стили
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+API Документация
+Эндпоинты
+1. GET /api/sights
+Возвращает список всех достопримечательностей.
 
-## Deploy on Vercel
+2. POST /api/sights
+Создает новую достопримечательность.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+json
+Копировать
+Редактировать
+{
+  "id": "string";
+  "name": "Название",
+  "description": "Описание",
+  "rating": 4,
+  "location": "адрес",
+  "coordinates": { "latitude": 59.3293, "longitude": 18.0686 },
+  "status": "в планах"
+  "addedDate": Дата;
+  "googleMapsLink": "Ссылка";
+}
+3. GET /api/sights/{id}
+Возвращает информацию о конкретной достопримечательности.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4. PUT /api/sights/{id}
+Обновляет информацию о достопримечательности.
+
+5. DELETE /api/sights/{id}
+Удаляет достопримечательность.
+
+6. GET /api/sights/stats
+Возвращает статистику по достопримечательностям.
+
+Функциональность
+Просмотр достопримечательностей: Счетчик и таблица.
+
+Режим администратора: Создание, редактирование, удаление.
+
+Данные: ID, название, описание, дата, рейтинг, фото, местоположение, координаты, статус.
+
+Зависимости
+React
+
+TypeScript
+
+Gravity UI
+
+Axios
+
+axios.get('/api/sights')
+  .then(response => console.log(response.data))
+  .catch(error => console.error(error));
+
+axios.post('/api/sights', {
+  "id": "string";
+  "name": "Название",
+  "description": "Описание",
+  "rating": 4,
+  "location": "адрес",
+  "coordinates": { "latitude": 59.3293, "longitude": 18.0686 },
+  "status": "в планах"
+  "addedDate": Дата;
+  "googleMapsLink": "Ссылка";
+})
+  .then(response => console.log(response.data))
+  .catch(error => console.error(error));
+
+axios.delete('/api/sights/1')
+  .then(response => console.log('Deleted'))
+  .catch(error => console.error(error));
+  
+Этот документ предоставляет информацию о том, как взаимодействовать с API с использованием **Axios**, включая примеры запросов и ответа.
