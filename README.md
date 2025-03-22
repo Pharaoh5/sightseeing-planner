@@ -84,6 +84,7 @@ Gravity UI
 
 Axios
 
+```jsx
 axios.get('/api/sights')
   .then(response => console.log(response.data))
   .catch(error => console.error(error));
@@ -105,5 +106,6 @@ axios.post('/api/sights', {
 axios.delete('/api/sights/1')
   .then(response => console.log('Deleted'))
   .catch(error => console.error(error));
+```
   
 Этот документ предоставляет информацию о том, как взаимодействовать с API с использованием **Axios**, включая примеры запросов и ответа.
